@@ -17,6 +17,7 @@ Math:
 
 # Character map for escape sequences
 
+The character set is from the 1982 Kaypro II machines. (I've extracted it from the video ROM.)
 The input text can contain escape sequences, for example:
 
     \001 + \002 = \007
