@@ -240,27 +240,28 @@ namespace SteelSeriesAnimGif {
         ///     "\065" for the letter "a"
         /// </summary>
         /// <param name="text">Input text to be decoded</param>
-        /// <returns>A 32*32 byte array. If the input text is bigger then it is cropped.</returns>
+        /// <returns>A 32*N byte array. If the input text is wider than 32, then it is cropped.</returns>
         public static ConvertedText ConvertText(string text) {
-            byte[,] data = new byte[32, 32];
             int x = 0;
             int y = 0;
             int escRemain = 0;
             int escCode = 0;
-
-            for (int i = 0; i < 32; i++) {
-                for (int j = 0; j < 32; j++) {
-                    data[i, j] = 32;   // Initialize with the space character
-                }
-            }
 
             string[] lines = text.Split(
                 new[] { "\r\n", "\r", "\n" },
                 StringSplitOptions.None
             );
 
+            byte[,] data = new byte[32, lines.Length];
+
+            for (int i = 0; i < 32; i++) {
+                for (int j = 0; j < lines.Length; j++) {
+                    data[i, j] = 32;   // Initialize with the space character
+                }
+            }
+
             foreach(string line in lines) {
-                if (y >= 32) {
+                if (y >= lines.Length) {
                     break;
                 }
 
