@@ -7,6 +7,10 @@ from any string input.
 
 # Samples
 
+Star Wars crawl text:
+
+![Bits](samples/star_wars.gif)
+
 Bits:
 
 ![Bits](samples/bits.gif)
@@ -14,6 +18,10 @@ Bits:
 Math:
 
 ![Bits](samples/math.gif)
+
+Assembly (from MS-DOS source code):
+
+![Bits](samples/assembly.gif)
 
 # Character map for escape sequences
 
@@ -28,7 +36,9 @@ Use them if one of the characters you typed doesn't render properly, or if you w
 
 # Usage
 
-Just pass the path to the text file as the first parameter:
+First install the `.net core` runtime environment, then just pass the
+path to the text file as the first parameter, when executing the app
+in the command line:
 
     dotnet run samples/bits.txt
 

@@ -267,7 +267,7 @@ namespace SteelSeriesAnimGif {
                 foreach(char c in line) {
                     if (x >=32) {
                         if (escRemain > 0) {
-                            throw new Exception($"Invalid escape code on line {y}:\n\n{line}\n");
+                            throw new Exception($"Invalid escape code on line {y + 1}:\n\n{line}\n");
                         }
 
                         break;
@@ -276,7 +276,7 @@ namespace SteelSeriesAnimGif {
                     if (escRemain > 0) {
                         int value = c - 48;
                         if (value < 0 || value > 9) {
-                            throw new Exception($"Invalid escape code on line {y}:\n\n{line}\n");
+                            throw new Exception($"Invalid escape code on line {y + 1}:\n\n{line}\n");
                         }
                         
                         escCode += value * (int)Math.Pow(10, escRemain - 1);
@@ -284,7 +284,7 @@ namespace SteelSeriesAnimGif {
 
                         if (escRemain == 0) {
                             if (escCode < 0 || escCode > 127) {
-                                throw new Exception($"Invalid escape code on line {y}:\n\n{line}\n");
+                                throw new Exception($"Invalid escape code on line {y + 1}:\n\n{line}\n");
                             }
 
                             data[x, y] = (byte)escCode;
