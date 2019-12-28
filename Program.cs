@@ -38,14 +38,14 @@ namespace SteelSeriesAnimGif {
 
                 using(var gif = AnimatedGif.AnimatedGif.Create(target, 100))
                 using(var img = new Bitmap(128, 40)) {
-                    for (int y = 0; y > -text.Length*12; y--) {
+                    for (int y = 0; y > -text.Length*10; y--) {
                         using(var graphics = Graphics.FromImage(img)) {
                             graphics.Clear(Color.Black);
                         }
 
-                        for (int a = 0; a < 16; a++) {
+                        for (int a = 0; a < 21; a++) {
                             for (int b = 0; b < fullLength; b++) {
-                                Kaypro2Font.DrawCharacter(img, text.Data[a, b % text.Length], a * 8, b * 12 + y, Color.White, 1);
+                                Kaypro2Font.DrawCharacter(img, text.Data[a, b % text.Length], a * 6 + 1, b * 10 + y, Color.White, 1);
                             }
                         }
 

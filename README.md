@@ -1,9 +1,9 @@
 OLED gif generator for Steelseries keyboards
 ============================================
 
-This tool generates anim GIFs that can be outputted on the OLED display
+This tool generates anim GIFs that can be outputted on the 128x40 pixel OLED display
 of Steelseries keyboards. It creates a scrolling / repeating animation
-from any string input.
+from an arbitrary text input. (Maximum 21x4 characters per screen)
 
 # Samples
 
@@ -38,8 +38,8 @@ Use them if one of the characters you typed doesn't render properly, or if you w
 
 First install the `.net core` runtime environment, then just pass the
 path to the text file as the first parameter, when executing the app
-in the command line:
+on the command line:
 
     dotnet run samples/bits.txt
 
-It will create a file in the same folder and with the same name but with '.gif' extension.
+It will create an animation in the same folder and with the same name but with '.gif' extension.

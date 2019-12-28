@@ -180,9 +180,9 @@ namespace SteelSeriesAnimGif {
                 code = 32;  // Space
             }
 
-            for(int dx = 0; dx < 8; dx++) {
+            for(int dx = 2; dx < 8; dx++) {
                 for(int dy = 0; dy < 8; dy++) {
-                    int x1 = x + dx * size;
+                    int x1 = x + (dx - 2) * size;
                     int y1 = y + dy * size;
 
                     if (x1 < 0 || x1 >= bitmap.Width || y1 < 0 || y1 >= bitmap.Height) {
