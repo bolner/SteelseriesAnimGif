@@ -213,19 +213,21 @@ namespace SteelSeriesAnimGif {
         public static Bitmap GenerateChart() {
             var bmp = new Bitmap(760, 1000);
 
-            for (int nx = 0; nx < 8; nx++) {
-                for (int ny = 0; ny < 16; ny++) {
-                    Kaypro2Font.DrawCharacter(bmp, ny * 8 + nx, nx * 90 + 20, ny * 60 + 20, Color.White, 4);
-                }
-            }
-
             using(var graphics = Graphics.FromImage(bmp))
             using(var brush = new SolidBrush(Color.Aquamarine))
+            using(var pen = new Pen(Color.DarkSlateGray, 3.5f))
             using(var font = new Font("Arial", 12)) {
                 for (int nx = 0; nx < 8; nx++) {
                     for (int ny = 0; ny < 16; ny++) {
+                        graphics.DrawRectangle(pen, (float)(nx * 90 + 19.5), (float)(ny * 60 + 19.5), 32.0f, 32.0f);
                         graphics.DrawString((ny * 8 + nx).ToString("D3"), font, brush, nx * 90 + 60, ny * 60 + 30);
                     }
+                }
+            }
+
+            for (int nx = 0; nx < 8; nx++) {
+                for (int ny = 0; ny < 16; ny++) {
+                    Kaypro2Font.DrawCharacter(bmp, ny * 8 + nx, nx * 90 + 20, ny * 60 + 20, Color.White, 4);
                 }
             }
 
@@ -237,7 +239,7 @@ namespace SteelSeriesAnimGif {
         /// contains the Kaypro II character codes.
         /// The text can contain escape codes with decimal
         /// ASCII codes. For example:
-        ///     "\065" for the letter "a"
+        ///     "\065" for the letter "A"
         /// </summary>
         /// <param name="text">Input text to be decoded</param>
         /// <returns>A 32*N byte array. If the input text is wider than 32, then it is cropped.</returns>

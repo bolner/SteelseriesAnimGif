@@ -17,6 +17,7 @@ using System;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace SteelSeriesAnimGif {
     public class Program {
